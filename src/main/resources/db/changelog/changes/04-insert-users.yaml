@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: 04-insert-users
+      author: oleksii
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: username
+                  value: "admin"
+              - column:
+                  name: password
+                  value: "9mBxV438pH"
+              - column:
+                  name: email
+                  value: "admin@gmail.com"
+              - column:
+                  name: first_name
+                  value: "admin"
+              - column:
+                  name: last_name
+                  value: "admin"
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: username
+                  value: "user"
+              - column:
+                  name: password
+                  value: "vE879Yf3Ve"
+              - column:
+                  name: email
+                  value: "user@gmail.com"
+              - column:
+                  name: first_name
+                  value: "user"
+              - column:
+                  name: last_name
+                  value: "user"
