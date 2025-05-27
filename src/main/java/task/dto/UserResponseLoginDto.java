@@ -1,4 +1,4 @@
 package task.dto;
 
-public class UserResponseLoginDto {
+public record UserResponseLoginDto(String token) {
 }

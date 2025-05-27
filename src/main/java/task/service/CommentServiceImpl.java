@@ -1,4 +1,4 @@
-package task.repository;
+package task.service;
 
 import java.time.LocalDateTime;
 import lombok.RequiredArgsConstructor;
@@ -8,11 +8,13 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import task.dto.CommentCreateRequestDto;
 import task.dto.CommentDto;
+import task.exception.EntityNotFoundException;
 import task.mapper.CommentMapper;
 import task.model.Comment;
 import task.model.Task;
 import task.model.User;
-import task.service.CommentService;
+import task.repository.CommentRepository;
+import task.repository.TaskRepository;
 
 @Service
 @RequiredArgsConstructor

@@ -1,4 +1,8 @@
 package task.exception;
 
-public class RegistrationException {
+public class RegistrationException extends RuntimeException {
+
+    public RegistrationException(String message) {
+        super(message);
+    }
 }

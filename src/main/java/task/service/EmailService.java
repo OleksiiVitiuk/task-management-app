@@ -1,4 +1,5 @@
 package task.service;
 
-public class EmailService {
+public interface EmailService {
+    void sendEmail(String to, String text);
 }

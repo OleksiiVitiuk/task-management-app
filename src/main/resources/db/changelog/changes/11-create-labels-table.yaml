@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 11-create-labels-table
+      author: oleksii
+      changes:
+        - createTable:
+            tableName: labels
+            columns:
+              - column:
+                  name: task_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: color
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_deleted
+                  type: boolean
+                  constraints:
+                    nullable: false
+                  defaultValueBoolean: false
+        - addForeignKeyConstraint:
+            baseTableName: labels
+            baseColumnNames: task_id
+            constraintName: id_to_task_id
+            referencedTableName: tasks
+            referencedColumnNames: id
+            onDelete: CASCADE

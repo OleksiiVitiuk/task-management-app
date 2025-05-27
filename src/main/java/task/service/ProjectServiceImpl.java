@@ -1,4 +1,4 @@
-package task.repository;
+package task.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -6,9 +6,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import task.dto.ProjectCreateRequestDto;
 import task.dto.ProjectDto;
+import task.exception.EntityNotFoundException;
 import task.mapper.ProjectMapper;
 import task.model.Project;
-import task.service.ProjectService;
+import task.repository.ProjectRepository;
 
 @Service
 @RequiredArgsConstructor

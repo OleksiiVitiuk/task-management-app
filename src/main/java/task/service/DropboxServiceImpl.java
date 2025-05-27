@@ -1,4 +1,4 @@
-package task.repository;
+package task.service;
 
 import com.dropbox.core.DbxException;
 import com.dropbox.core.v2.DbxClientV2;
@@ -13,7 +13,7 @@ import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import task.service.DropboxService;
+import task.exception.DropboxProcessException;
 
 @Service
 @RequiredArgsConstructor
@@ -58,8 +58,8 @@ public class DropboxServiceImpl implements DropboxService {
             if (metadata instanceof FileMetadata fileMetadata) {
                 String path = fileMetadata.getPathLower();
                 try (InputStream in = downloadFile(path);
-                     FileOutputStream out = new FileOutputStream(
-                             PATH_TO_DOWNLOAD + fileMetadata.getName())) {
+                        FileOutputStream out = new FileOutputStream(
+                                PATH_TO_DOWNLOAD + fileMetadata.getName())) {
 
                     byte[] buffer = new byte[BUFFER_SIZE];
                     int bytesRead;

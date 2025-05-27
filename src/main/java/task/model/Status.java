@@ -1,4 +1,7 @@
 package task.model;
 
-public class Status {
+public enum Status {
+    INITIATED,
+    IN_PROGRESS,
+    COMPLETED
 }

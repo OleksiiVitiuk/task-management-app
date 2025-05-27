@@ -1,4 +1,4 @@
-package task.repository;
+package task.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,8 @@ import task.dto.LabelDto;
 import task.mapper.LabelMapper;
 import task.model.Label;
 import task.model.Task;
-import task.service.LabelService;
+import task.repository.LabelRepository;
+import task.repository.TaskRepository;
 
 @Service
 @RequiredArgsConstructor
