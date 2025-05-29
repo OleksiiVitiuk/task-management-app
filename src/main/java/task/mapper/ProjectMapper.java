@@ -13,8 +13,6 @@ import task.model.Task;
 @Mapper(config = MapperConfig.class)
 public interface ProjectMapper {
 
-    @Mapping(source = "startDate", target = "startDate")
-    @Mapping(source = "endDate", target = "endDate")
     @Mapping(target = "taskIds", ignore = true)
     ProjectDto toDto(Project project);
 
@@ -27,12 +25,8 @@ public interface ProjectMapper {
         );
     }
 
-    @Mapping(target = "startDate", source = "startDate")
-    @Mapping(target = "endDate", source = "endDate")
     Project toModel(ProjectCreateRequestDto dto);
 
-    @Mapping(target = "startDate", source = "startDate")
-    @Mapping(target = "endDate", source = "endDate")
     @Mapping(target = "tasks", ignore = true)
     Project toModel(ProjectDto dto);
 

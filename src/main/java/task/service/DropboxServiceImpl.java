@@ -23,7 +23,6 @@ public class DropboxServiceImpl implements DropboxService {
     private static final int BUFFER_SIZE = 4096;
     private static final int END_FILE = -1;
     private static final int START_WITH_BITE = 0;
-
     private final DbxClientV2 client;
 
     @Override
@@ -37,17 +36,6 @@ public class DropboxServiceImpl implements DropboxService {
             throw new DropboxProcessException(
                     "Can`t upload file: " + file.getOriginalFilename(), e);
         }
-    }
-
-    private InputStream downloadFile(String filePath) {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        try {
-            client.files().download(filePath).download(out);
-        } catch (DbxException | IOException e) {
-            throw new DropboxProcessException(
-                    "Cant download file with path: " + filePath, e);
-        }
-        return new ByteArrayInputStream(out.toByteArray());
     }
 
     @Override
@@ -81,5 +69,16 @@ public class DropboxServiceImpl implements DropboxService {
         } catch (DbxException e) {
             throw new RuntimeException("Cant delete file with id: " + fileId, e);
         }
+    }
+
+    private InputStream downloadFile(String filePath) {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        try {
+            client.files().download(filePath).download(out);
+        } catch (DbxException | IOException e) {
+            throw new DropboxProcessException(
+                    "Cant download file with path: " + filePath, e);
+        }
+        return new ByteArrayInputStream(out.toByteArray());
     }
 }

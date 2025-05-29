@@ -43,6 +43,7 @@ public class CommentServiceImpl implements CommentService {
         return commentMapper.toDto(comment);
     }
 
+    @Override
     public Page<CommentDto> getCommentsByTaskId(Pageable pageable, Long id) {
         if (!taskRepository.existsById(id)) {
             throw new EntityNotFoundException(

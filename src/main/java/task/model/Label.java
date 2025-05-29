@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapsId;
@@ -18,7 +19,7 @@ import org.hibernate.annotations.SQLRestriction;
 @Table(name = "labels")
 @Getter
 @Setter
-@SQLDelete(sql = "UPDATE labels SET is_deleted = true WHERE id = ?")
+@SQLDelete(sql = "UPDATE labels SET is_deleted = true WHERE task_id = ?")
 @SQLRestriction("is_deleted = false")
 public class Label {
 
@@ -30,7 +31,7 @@ public class Label {
     @Enumerated(EnumType.STRING)
     private Color color;
     @MapsId
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "task_id")
     private Task task;
     @Column(nullable = false, columnDefinition = "TINYINT(1)")
