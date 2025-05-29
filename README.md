@@ -8,10 +8,6 @@ Core Features:
 * Get instant email notifications whenever tasks are assigned, updated, or removed
 * Upload, download, and manage task files securely through cloud storage integration (Dropbox)
 
-## Model diagram
-
-![img.png](README_files/img.png)
-
 ## Tech Stack & Dependencies
 
 ### Java & Spring
@@ -93,6 +89,33 @@ Admin capabilities:
         POST: / - Add a comment to a task
         GET: / - Retrieve paginated list of comments by task ID
 
+## Model diagram
+
+![img.png](README_files/img.png)
+
+## How to Clone the Project
+
+To copy this project to your local machine, follow these steps:
+
+1. Open your terminal or command prompt.
+2. Navigate to the directory where you want to save the project.
+3. Run the clone command:
+
+    `git clone https://github.com/OleksiiVitiuk/task-management-app.git`
+
+4. Change into the project directory: 
+
+    `cd task-management-app`
+5. Open the project in your IDE
+6. Create a new branch for your work:
+
+    `git checkout -b my-feature-branch`
+
+This project is built with Spring Boot. To run it, make sure you have installed:
+* Java 17+
+* Maven
+* Docker and MySQL
+
 ### Running project
 
 **Docker:**
@@ -132,7 +155,7 @@ Admin capabilities:
     
     docker-compose down   # Stop the project
 
-6. After starting the web server, download task.postman_collection.json(in README_files).
+6. After starting the web server, download `task.postman_collection.json`(in `README_files`).
 
 7. Import it into Postman to test the functionality.
 
