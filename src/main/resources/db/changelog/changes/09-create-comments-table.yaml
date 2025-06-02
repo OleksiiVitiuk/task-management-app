@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: 09-create-comments-table
+      author: oleksii
+      changes:
+        - createTable:
+            tableName: comments
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: text
+                  type: VARCHAR(500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: timestamp
+                  type: datetime(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: task_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_comments_task
+                    references: tasks(id)
+                    deleteCascade: true
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_comments_user
+                    references: users(id)
+                    deleteCascade: true
